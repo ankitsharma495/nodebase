@@ -1,8 +1,10 @@
+// import {cn} from "@/lib/utils"
+import {Button} from "@/components/ui/button"
 const Page = ()=>{
    return (
      <div>
     <h1 className="bg-zinc-600">
-      heelo 
+      <Button>Click me</Button>
     </h1>
   </div>
    )
