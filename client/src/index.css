@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface-900 text-slate-100 font-sans;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-[0.75rem] bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-surface-900 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_-6px_rgba(85,81,255,0.4)] hover:shadow-[0_0_28px_-4px_rgba(85,81,255,0.5)];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-[0.75rem] border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-slate-300 transition-all hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-surface-900;
+  }
+
+  .card {
+    @apply rounded-[0.75rem] border border-white/[0.06] bg-white/[0.03] p-6 backdrop-blur-sm transition-all;
+  }
+
+  .card-hover {
+    @apply card hover:border-white/[0.12] hover:bg-white/[0.05] hover:shadow-[0_0_30px_-10px_rgba(85,81,255,0.15)];
+  }
+
+  .input-field {
+    @apply w-full rounded-[0.75rem] border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/30 transition-all;
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 40px -10px rgba(85, 81, 255, 0.3);
+  }
+
+  .glow-sm {
+    box-shadow: 0 0 20px -6px rgba(85, 81, 255, 0.3);
+  }
+
+  .icon {
+    @apply inline-flex items-center justify-center;
+    font-family: 'Material Symbols Outlined';
+    font-size: inherit;
+    line-height: 1;
+  }
+
+  /* Landing page utilities */
+  .text-glow-green {
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 30px rgba(0, 255, 65, 0.2);
+  }
+
+  .text-glow-green-strong {
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.6), 0 0 40px rgba(0, 255, 65, 0.3), 0 0 80px rgba(0, 255, 65, 0.1);
+  }
+
+  .border-glow-green {
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2), 0 0 30px rgba(0, 255, 65, 0.05);
+  }
+
+  .border-glow-green-strong {
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3), 0 0 60px rgba(0, 255, 65, 0.1), inset 0 0 12px rgba(0, 255, 65, 0.05);
+  }
+
+  .geo-circle {
+    @apply absolute border border-white/[0.05] rounded-full pointer-events-none;
+  }
+
+  .aurora-blob {
+    @apply absolute rounded-full pointer-events-none blur-[120px];
+    mix-blend-mode: screen;
+  }
+
+  .scan-line {
+    @apply absolute left-0 w-full h-px pointer-events-none;
+    background: linear-gradient(90deg, transparent 0%, rgba(0,255,65,0.15) 20%, rgba(0,255,65,0.4) 50%, rgba(0,255,65,0.15) 80%, transparent 100%);
+  }
+
+  .orb {
+    @apply absolute rounded-full pointer-events-none;
+    background: radial-gradient(circle, rgba(0,255,65,0.3) 0%, rgba(0,255,65,0) 70%);
+  }
+
+  .particle-trail {
+    @apply absolute h-px pointer-events-none;
+    background: linear-gradient(90deg, transparent, rgba(0,255,65,0.6), transparent);
+  }
+
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}

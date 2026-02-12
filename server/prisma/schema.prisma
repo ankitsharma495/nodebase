@@ -1,0 +1,43 @@
+// ===========================================
+// Prisma Schema - Flowbase Database
+// ===========================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(uuid())
+  linkedinId  String   @unique @map("linkedin_id")
+  name        String
+  email       String?  @unique
+  avatarUrl   String?  @map("avatar_url")
+  accessToken String   @map("access_token")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  analyses Analysis[]
+
+  @@map("users")
+}
+
+model Analysis {
+  id               String   @id @default(uuid())
+  userId           String   @map("user_id")
+  rawPosts         String   @map("raw_posts") @db.Text
+  detectedNiche    String?  @map("detected_niche")
+  growthScore      Int?     @map("growth_score")
+  fullAnalysisJson Json?    @map("full_analysis_json")
+  growthPlanJson   Json?    @map("growth_plan_json")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("analyses")
+}
